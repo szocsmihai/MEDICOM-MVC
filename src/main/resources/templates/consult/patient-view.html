@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Medicom Patient</title>
+        <link rel="shortcut icon" type="image/png" href="/assets/brand/m.png">
+        <!-- Bootstrap core CSS -->
+        <link href="/assets/dist/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="/assets/styles/form-design.css" rel="stylesheet">
+
+
+    </head>
+
+    <body class="text-center form-design">
+        <div class="form-design">
+            <img class="mb-4" src="/assets/brand/m.svg" alt="" width="156" height="156">
+            <h1 class="h3 mb-3 font-weight-normal">Medicom Patient</h1>
+
+            <form class="form-design" method="GET" th:action="@{/users/add-consult}" th:object="${patientDTO}">
+
+                <div class="form-label-group">
+                    <input id="cnp" name="cnp" th:field="*{cnp}" type="text" class="form-control"
+                           placeholder="Patient CNP" hidden>
+                    <span th:errors="*{cnp}" th:if="${#fields.hasErrors('cnp')}"></span>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Add Consult</button>
+
+            </form>
+
+            <form class="form-design" method="GET" th:action="@{/users/consult/by-cnp}" th:object="${patientDTO}">
+
+                <div class="form-label-group">
+                    <input id="cnp" name="cnp" th:field="*{cnp}" type="text" class="form-control"
+                           placeholder="Patient CNP" hidden>
+                    <span th:errors="*{cnp}" th:if="${#fields.hasErrors('cnp')}"></span>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Get Consult</button>
+
+            </form>
+        </div>
+        <br>
+        <h1 class="h3 mb-3 font-weight-normal contents">Your last Patient request result:</h1>
+        <br>
+        <table class="table contents">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>CNP</th>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
+                    <th>EMAIL</th>
+                    <th>PHONE NUMBER</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${patientDTO.id}"></td>
+                    <td th:text="${patientDTO.cnp}"></td>
+                    <td th:text="${patientDTO.firstName}"></td>
+                    <td th:text="${patientDTO.lastName}"></td>
+                    <td th:text="${patientDTO.email}"></td>
+                    <td th:text="${patientDTO.phoneNoRo}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <a class="btn btn-lg btn-primary btn-block form-design " style="padding : 0.5rem 1rem"
+           href="/users/patient/by-cnp">Clear
+            Result</a>
+        <br>
+        <a href="/logout" class="btn btn-lg btn-danger btn-block">Logout</a>
+
+        <br>
+        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+
+    </body>
+</html>
+

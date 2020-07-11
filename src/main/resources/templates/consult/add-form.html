@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Medicom Add Consult</title>
+        <link rel="shortcut icon" type="image/png" href="/assets/brand/m.png">
+
+
+        <!-- Bootstrap core CSS -->
+        <link href="/assets/dist/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
+        <!-- Custom styles for this template -->
+        <link href="/assets/styles/form-design.css" rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+
+    </head>
+
+    <body class="text-center">
+
+        <form class="form-design" method="POST" th:action="@{/users/add-consult}" th:object="${consultDTO}">
+
+            <img class="mb-4" src="/assets/brand/m.svg" alt="" width="156" height="156">
+            <h1 class="h3 mb-3 font-weight-normal">Add Consult form</h1>
+
+            <div class="form-label-group">
+                <input id="patient_cnp" name="patient_cnp" th:field="*{patient_cnp}" type="text" class="form-control"
+                       placeholder="Patient CNP" hidden>
+                <span th:errors="*{patient_cnp}" th:if="${#fields.hasErrors('patient_cnp')}"></span>
+            </div>
+
+            <div class="form-label-group">
+                <input id="doctor_cnp" name="doctor_cnp" th:field="*{doctor_cnp}" type="text" class="form-control"
+                       placeholder="Doctor CNP" autofocus>
+                <span th:errors="*{doctor_cnp}" th:if="${#fields.hasErrors('doctor_cnp')}"></span>
+                <label for="patient_cnp">Doctor CNP</label>
+            </div>
+
+            <div class="form-label-group">
+                <input id="institution_cui" name="institution_cui" th:field="*{institution_cui}" type="text"
+                       class="form-control"
+                       placeholder="Institution CUI">
+                <span th:errors="*{institution_cui}" th:if="${#fields.hasErrors('institution_cui')}"></span>
+                <label for="institution_cui">Institution CUI</label>
+            </div>
+
+            <div class="form-label-group">
+                <input id="diagnostic_desc" name="diagnostic_desc" th:field="*{diagnostic_desc}" type="text"
+                       class="form-control"
+                       placeholder="Diagnostic Description">
+                <span th:errors="*{diagnostic_desc}" th:if="${#fields.hasErrors('diagnostic_desc')}"></span>
+                <label for="diagnostic_desc">Diagnostic Description</label>
+            </div>
+
+            <div class="form-label-group">
+                <input id="treatment_desc" name="treatment_desc" th:field="*{treatment_desc}" type="text"
+                       class="form-control"
+                       placeholder="Treatment Description">
+                <span th:errors="*{treatment_desc}" th:if="${#fields.hasErrors('treatment_desc')}"></span>
+                <label for="treatment_desc">Treatment Description</label>
+            </div>
+
+            <div class="form-label-group">
+                <input id="treatment_schedule" name="treatment_schedule" th:field="*{treatment_schedule}" type="text"
+                       class="form-control"
+                       placeholder="Treatment Schedule">
+                <span th:errors="*{treatment_schedule}" th:if="${#fields.hasErrors('treatment_schedule')}"></span>
+                <label for="treatment_schedule">Treatment Schedule</label>
+            </div>
+
+            <div class="form-label-group">
+                <input id="min_days" name="min_days" th:field="*{min_days}" type="text" class="form-control"
+                       placeholder="Minimum Days">
+                <span th:errors="*{min_days}" th:if="${#fields.hasErrors('min_days')}"></span>
+                <label for="min_days">Minimum Days</label>
+            </div>
+
+            <div class="form-label-group">
+                <input id="max_days" name="max_days" th:field="*{max_days}" type="text" class="form-control"
+                       placeholder="Maximum Days">
+                <span th:errors="*{max_days}" th:if="${#fields.hasErrors('max_days')}"></span>
+                <label for="max_days">Maximum Days</label>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Add Consult</button>
+
+            <br><br>
+        </form>
+        <form class="form-design" method="GET" th:action="@{/users/find-patient}" th:object="${patientDTO}">
+
+            <div class="form-label-group">
+                <input name="cnp" th:field="*{cnp}" type="text" class="form-control"
+                       placeholder="Patient CNP" hidden>
+                <span th:errors="*{cnp}" th:if="${#fields.hasErrors('cnp')}"></span>
+            </div>
+            <br>
+            <button class="btn btn-lg btn-secondary btn-block" type="submit">Go Back</button>
+        </form>
+        <br><br>
+
+        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+
+    </body>
+</html>

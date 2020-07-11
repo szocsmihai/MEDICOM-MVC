@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Medicom Find Patient</title>
+        <link rel="shortcut icon" type="image/png" href="/assets/brand/m.png">
+        <!-- Bootstrap core CSS -->
+        <link href="/assets/dist/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="/assets/styles/form-design.css" rel="stylesheet">
+
+
+    </head>
+
+    <body class="text-center form-design">
+        <div class="form-design">
+            <img class="mb-4" src="/assets/brand/m.svg" alt="" width="156" height="156">
+            <h1 class="h3 mb-3 font-weight-normal">Medicom Find Patient form</h1>
+
+
+            <form class="form-design" method="GET" th:action="@{/users/find-patient}" th:object="${patientDTO}">
+
+                <div class="form-label-group">
+                    <input id="cnp" name="cnp" th:field="*{cnp}" type="cnp" class="form-control"
+                           placeholder="CNP">
+                    <span th:errors="*{cnp}" th:if="${#fields.hasErrors('cnp')}"></span>
+                    <label for="cnp">CNP</label>
+                </div>
+                <br>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Get Patient</button>
+            </form>
+            <br>
+            <a href="/logout" class="btn btn-lg btn-danger btn-block">Logout</a>
+
+            <br>
+            <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+

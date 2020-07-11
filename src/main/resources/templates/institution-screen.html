@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Medicom Institution Screen</title>
+        <link rel="shortcut icon" type="image/png" href="/assets/brand/m.png">
+        <!-- Bootstrap core CSS -->
+        <link href="/assets/dist/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="/assets/styles/form-design.css" rel="stylesheet">
+
+
+    </head>
+
+    <body class="text-center form-design" style="padding: 0px">
+
+        <div class="form-design" th:fragment="categories" style="padding: 0px">
+            <img class="mb-4" src="/assets/brand/m.svg" alt="" width="156" height="156">
+            <h1 class="h3 mb-3 font-weight-normal">Medicom Institution Screen</h1>
+
+            <a class="h3 mb-3 font-weight-normal" th:each="cui : ${cuiArray}" th:text="${cui}"></a>
+
+
+        </div>
+        <a href="/logout" class="btn btn-lg btn-danger btn-block">Logout</a>
+        <br>
+        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+
+
+    </body>
+</html>
+
